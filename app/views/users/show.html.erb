@@ -19,6 +19,10 @@
               <td><%= link_to user_path(book.user) do %> <%= image_tag book.user.get_profile_image(100,100) %> <% end %></td>
               <td><%= link_to book.title ,book_path(book) %></td>
               <td><%= book.body %></td>
+              <td><%= link_to book_favorites_path(book),method: :post do %>
+                  <i class="far fa-heart"></i><%= book.favorites.count %> いいね</td>
+                  <% end %>
+              <td>コメント数：<%= book.book_comments.count %></td>
             </tr>
             <% end %>
             </tbody>
